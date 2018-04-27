@@ -1,0 +1,15 @@
+*.DS_Store
+*.sublime-workspace
+*.sublime-project
+*.*~
+._*
+*.pyc
+*.log
+*.pdf
+*.tar.gz
+*.tgz
+*.gz
+*.so
+.nfs*
+tmp
+build

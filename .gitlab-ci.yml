@@ -1,0 +1,53 @@
+stages:
+  - test
+
+before_script:
+  - set -o pipefail
+  - export CI_HOME="$( pwd )"
+  - git submodule update --init --recursive
+  - export SCRAM_ARCH="$SCRAM_ARCH"
+  - export CMSSW_VERSION="$CMSSW_VERSION"
+  - source /cvmfs/cms.cern.ch/cmsset_default.sh
+  - cd ..
+  - scramv1 project CMSSW $CMSSW_VERSION
+  - cd $CMSSW_VERSION/src
+  - eval `scramv1 runtime -sh`
+  - cp -r $CI_HOME TensorFlowExamples
+  - scram b
+  - cd $CI_HOME
+
+9_4_X:
+  stage: test
+  tags:
+    - cvmfs
+    - docker
+  variables:
+    SCRAM_ARCH: slc6_amd64_gcc630
+    CMSSW_VERSION: CMSSW_9_4_6_patch1
+  script:
+    - cd $CMSSW_BASE/src
+    - cmsRun TensorFlowExamples/GraphLoading/test/graphLoading_cfg.py
+
+10_0_X:
+  stage: test
+  tags:
+    - cvmfs
+    - docker
+  variables:
+    SCRAM_ARCH: slc6_amd64_gcc630
+    CMSSW_VERSION: CMSSW_10_0_5
+  script:
+    - cd $CMSSW_BASE/src
+    - cmsRun TensorFlowExamples/GraphLoading/test/graphLoading_cfg.py
+
+10_1_X:
+  stage: test
+  tags:
+    - cvmfs
+    - docker
+  variables:
+    SCRAM_ARCH: slc6_amd64_gcc630
+    CMSSW_VERSION: CMSSW_10_1_2_patch2
+  script:
+    - cd $CMSSW_BASE/src
+    - cmsRun TensorFlowExamples/GraphLoading/test/graphLoading_cfg.py
