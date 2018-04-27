@@ -28,7 +28,7 @@ before_script:
     CMSSW_VERSION: CMSSW_9_4_6_patch1
   script:
     - cd $CMSSW_BASE/src
-    - cmsRun TensorFlowExamples/GraphLoading/test/graphLoading_cfg.py inputFiles=dummy_file.root
+    - cmsRun TensorFlowExamples/GraphLoading/test/graphLoading_cfg.py inputFiles=file://dummy_file.root
 
 10_1_X:
   stage: test
@@ -40,4 +40,4 @@ before_script:
     CMSSW_VERSION: CMSSW_10_1_2_patch2
   script:
     - cd $CMSSW_BASE/src
-    - cmsRun TensorFlowExamples/GraphLoading/test/graphLoading_cfg.py inputFiles=dummy_file.root
+    - cmsRun TensorFlowExamples/GraphLoading/test/graphLoading_cfg.py inputFiles=file://dummy_file.root
