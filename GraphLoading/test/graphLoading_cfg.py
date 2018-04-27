@@ -37,7 +37,7 @@ process = cms.Process("TF")
 process.load("FWCore.MessageService.MessageLogger_cfi")
 process.MessageLogger.cerr.FwkReport.reportEvery = 1
 process.maxEvents = cms.untracked.PSet(input=cms.untracked.int32(10))
-process.source = cms.Source("PoolSource", fileNames=cms.untracked.vstring("root://xrootd-cms.infn.it//store/mc/RunIIFall17MiniAOD/DYJetsToLL_M-10to50_TuneCP5_13TeV-madgraphMLM-pythia8/MINIAODSIM/94X_mc2017_realistic_v10-v2/00000/9A439935-1FFF-E711-AE07-D4AE5269F5FF.root"))
+process.source = cms.Source("PoolSource", fileNames=cms.untracked.vstring("/store/mc/RunIIFall17MiniAOD/DYJetsToLL_M-10to50_TuneCP5_13TeV-madgraphMLM-pythia8/MINIAODSIM/94X_mc2017_realistic_v10-v2/00000/9A439935-1FFF-E711-AE07-D4AE5269F5FF.root"))
 
 # load the graphLoading example module
 process.load("TensorFlowExamples.GraphLoading.graphLoading_cfi")

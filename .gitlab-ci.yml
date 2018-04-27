@@ -28,18 +28,6 @@ before_script:
     - cd $CMSSW_BASE/src
     - cmsRun TensorFlowExamples/GraphLoading/test/graphLoading_cfg.py
 
-10_0_X:
-  stage: test
-  tags:
-    - cvmfs
-    - docker
-  variables:
-    SCRAM_ARCH: slc6_amd64_gcc630
-    CMSSW_VERSION: CMSSW_10_0_5
-  script:
-    - cd $CMSSW_BASE/src
-    - cmsRun TensorFlowExamples/GraphLoading/test/graphLoading_cfg.py
-
 10_1_X:
   stage: test
   tags:
